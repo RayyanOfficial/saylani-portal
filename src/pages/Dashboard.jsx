@@ -38,7 +38,7 @@ export default function Dashboard(){
 
   return (
     <Layout>
-      <div className="row g-3">
+      <div className="row g-3 mb-4">
         {stats.map(stat => (
           <div className="col-6 col-md-3" key={stat.title}>
             <StatCard title={stat.title} value={stat.value} icon={stat.icon} />
@@ -46,12 +46,12 @@ export default function Dashboard(){
         ))}
       </div>
 
-      <div className="row g-4 mt-4">
+      <div className="row g-4">
         <div className="col-12 col-xl-8">
           <div className="card card-custom p-4 rounded-16">
-            <div className="d-flex justify-content-between align-items-start gap-3 mb-3">
+            <div className="d-flex justify-content-between align-items-start gap-3 mb-3 flex-wrap">
               <div>
-                <h5 className="mb-1">Recent Activity</h5>
+                <h5 className="mb-1 fw-bold">Recent Activity</h5>
                 <p className="text-muted small mb-0">Latest updates from reports, registrations, and notifications.</p>
               </div>
               <button className="btn btn-outline-primary" onClick={()=>navigate('/notifications')}>View all notifications</button>
@@ -63,12 +63,12 @@ export default function Dashboard(){
             ) : (
               <div className="list-group">
                 {recentActivity.map(item => (
-                  <div key={item.id} className="list-group-item d-flex justify-content-between align-items-start">
+                  <div key={item.id} className="list-group-item d-flex justify-content-between align-items-start gap-3">
                     <div>
                       <div className="fw-bold">{item.label}</div>
                       <div className="small text-muted">{item.type} • {item.detail}</div>
                     </div>
-                    <div className="small text-muted">{fmtDate(item.date)}</div>
+                    <div className="small text-muted text-nowrap">{fmtDate(item.date)}</div>
                   </div>
                 ))}
               </div>
@@ -78,7 +78,7 @@ export default function Dashboard(){
 
         <div className="col-12 col-xl-4">
           <div className="card card-custom p-4 rounded-16 h-100">
-            <h5 className="mb-3">Quick Actions</h5>
+            <h5 className="mb-3 fw-bold">Quick Actions</h5>
             <div className="d-grid gap-3">
               <button className="btn btn-outline-success" onClick={()=>navigate('/lost-found')}>Report Lost/Found</button>
               <button className="btn btn-outline-primary" onClick={()=>navigate('/complaints')}>Submit a Complaint</button>

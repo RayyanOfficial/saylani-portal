@@ -15,10 +15,10 @@ export default function NotificationList(){
   }
 
   return (
-    <div className="card card-custom p-4">
-      <div className="d-flex align-items-center justify-content-between mb-3">
+    <div className="card card-custom p-4 rounded-16">
+      <div className="d-flex align-items-center justify-content-between mb-3 gap-3 flex-wrap">
         <div>
-          <h5 className="mb-1">Notifications</h5>
+          <h5 className="mb-1 fw-bold">Notifications</h5>
           <div className="small text-muted">Real-time updates for every system alert.</div>
         </div>
         {unreadCount > 0 && (
@@ -26,11 +26,11 @@ export default function NotificationList(){
         )}
       </div>
       <div className="list-group">
-        {notes.length===0 && <div className="text-muted small p-3">No notifications yet.</div>}
+        {notes.length===0 && <div className="empty-state">No notifications yet.</div>}
         {notes.map(n=> (
-          <div key={n.id} className={`list-group-item d-flex justify-content-between align-items-start ${n.read ? 'text-muted bg-light' : ''}`}>
+          <div key={n.id} className={`list-group-item d-flex justify-content-between align-items-start ${n.read ? 'text-muted' : ''}`}>
             <div>
-              <div>{n.message}</div>
+              <div className="fw-semibold">{n.message}</div>
               <div className="small text-muted">{fmtDate(n.createdAt)}</div>
             </div>
             <div>

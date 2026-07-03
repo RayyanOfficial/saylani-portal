@@ -3,7 +3,7 @@ import { sendPasswordResetEmail } from 'firebase/auth'
 import { auth } from '../firebase/firebaseConfig'
 import { Link } from 'react-router-dom'
 import { useToast } from '../context/ToastContext'
-import logo from '../assets/saylani-logo.svg'
+import BrandLogo from '../components/Brand/BrandLogo'
 
 export default function ForgotPassword(){
   const [email,setEmail] = useState('')
@@ -29,16 +29,16 @@ export default function ForgotPassword(){
   }
 
   return (
-    <div className="d-flex align-items-center justify-content-center" style={{minHeight:'100vh'}}>
-      <div className="card p-4 rounded-16" style={{width:420,maxWidth:'100%'}}>
+    <div className="auth-shell d-flex align-items-center justify-content-center">
+      <div className="auth-card p-4 p-md-5">
         <div className="text-center mb-4">
-          <img src={logo} alt="Saylani" className="logo" />
-          <h5 className="mt-2">Reset your password</h5>
-          <p className="text-muted small">Enter your email and we will send a reset link.</p>
+          <BrandLogo size={56} />
+          <h3 className="mt-3 fw-bold">Reset your password</h3>
+          <p className="text-muted mb-0">Enter your email and we will send a reset link.</p>
         </div>
         <form onSubmit={submit}>
           <div className="mb-3">
-            <label className="form-label">Email</label>
+            <label className="form-label fw-semibold">Email</label>
             <input type="email" className="form-control" value={email} onChange={e=>setEmail(e.target.value)} required />
           </div>
           {err && <div className="alert alert-danger py-2">{err}</div>}

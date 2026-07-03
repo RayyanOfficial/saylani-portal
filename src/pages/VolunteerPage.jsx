@@ -89,10 +89,11 @@ export default function VolunteerPage(){
       <div className="row gy-4">
         <div className="col-12 col-xl-4">
           <div className="card card-custom p-4 rounded-16">
-            <h5 className="mb-3">Volunteer Registration</h5>
+            <h5 className="mb-1 fw-bold">Volunteer Registration</h5>
+            <p className="text-muted small mb-3">Join community initiatives and help make events successful.</p>
             <form onSubmit={submit}>
               <div className="mb-3">
-                <label className="form-label">Name</label>
+                <label className="form-label fw-semibold">Name</label>
                 <input className="form-control" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} required />
               </div>
               <div className="mb-3">
@@ -120,7 +121,7 @@ export default function VolunteerPage(){
           <div className="card card-custom p-4 rounded-16 mb-4">
             <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
               <div>
-                <h5 className="mb-1">Volunteer Registrations</h5>
+                <h5 className="mb-1 fw-bold">Volunteer Registrations</h5>
                 <p className="text-muted small mb-0">Manage sign-ups and keep the volunteer roster up to date.</p>
               </div>
               <div className="d-flex gap-2 w-100 w-md-auto">

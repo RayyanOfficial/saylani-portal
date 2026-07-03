@@ -98,33 +98,33 @@ export default function AdminPage(){
   return (
     <Layout>
       <div className="mb-4">
-        <h4>Admin Dashboard</h4>
-        <p className="text-muted small">Manage users, reports, lost items, and volunteer registrations in one place.</p>
+        <h4 className="fw-bold">Admin Dashboard</h4>
+        <p className="text-muted small mb-0">Manage users, reports, lost items, and volunteer registrations in one place.</p>
       </div>
 
       <div className="row g-3 mb-4">
         <div className="col-6 col-md-3">
           <div className="card card-custom p-3 rounded-16">
-            <div className="text-muted small">Users</div>
-            <div className="h4 mt-2">{users.length}</div>
+            <div className="text-muted small fw-semibold">Users</div>
+            <div className="h4 mt-2 fw-bold">{users.length}</div>
           </div>
         </div>
         <div className="col-6 col-md-3">
           <div className="card card-custom p-3 rounded-16">
-            <div className="text-muted small">Lost & Found</div>
-            <div className="h4 mt-2">{lost.length}</div>
+            <div className="text-muted small fw-semibold">Lost & Found</div>
+            <div className="h4 mt-2 fw-bold">{lost.length}</div>
           </div>
         </div>
         <div className="col-6 col-md-3">
           <div className="card card-custom p-3 rounded-16">
-            <div className="text-muted small">Complaints</div>
-            <div className="h4 mt-2">{complaints.length}</div>
+            <div className="text-muted small fw-semibold">Complaints</div>
+            <div className="h4 mt-2 fw-bold">{complaints.length}</div>
           </div>
         </div>
         <div className="col-6 col-md-3">
           <div className="card card-custom p-3 rounded-16">
-            <div className="text-muted small">Volunteer signups</div>
-            <div className="h4 mt-2">{vols.length}</div>
+            <div className="text-muted small fw-semibold">Volunteer signups</div>
+            <div className="h4 mt-2 fw-bold">{vols.length}</div>
           </div>
         </div>
       </div>

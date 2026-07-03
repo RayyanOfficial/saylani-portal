@@ -90,16 +90,17 @@ export default function ComplaintsPage(){
       <div className="row gy-4">
         <div className="col-12 col-xl-4">
           <div className="card card-custom p-4 rounded-16">
-            <h5 className="mb-3">Submit a Complaint</h5>
+            <h5 className="mb-1 fw-bold">Submit a Complaint</h5>
+            <p className="text-muted small mb-3">Report facilities or service issues quickly and keep track of progress.</p>
             <form onSubmit={submit}>
               <div className="mb-3">
-                <label className="form-label">Category</label>
+                <label className="form-label fw-semibold">Category</label>
                 <select className="form-select" value={form.category} onChange={e=>setForm({...form,category:e.target.value})}>
                   {categories.map(category => <option key={category} value={category}>{category}</option>)}
                 </select>
               </div>
               <div className="mb-3">
-                <label className="form-label">Description</label>
+                <label className="form-label fw-semibold">Description</label>
                 <textarea className="form-control" rows={5} value={form.description} onChange={e=>setForm({...form,description:e.target.value})} placeholder="Describe the issue" required />
               </div>
               <button className="btn btn-primary w-100" disabled={saving}>{saving ? 'Sending...' : 'Submit Complaint'}</button>
@@ -111,7 +112,7 @@ export default function ComplaintsPage(){
           <div className="card card-custom p-4 rounded-16 mb-4">
             <div className="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
               <div>
-                <h5 className="mb-1">Complaints</h5>
+                <h5 className="mb-1 fw-bold">Complaints</h5>
                 <p className="text-muted small mb-0">Realtime complaints report with filters and management tools.</p>
               </div>
               <div className="d-flex flex-wrap gap-2 w-100 w-md-auto">

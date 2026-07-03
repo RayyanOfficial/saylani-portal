@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaBell, FaSignOutAlt } from 'react-icons/fa'
+import { FaBell, FaSignOutAlt, FaHome, FaTachometerAlt } from 'react-icons/fa'
 import { listenAllNotifications } from '../../services/notificationsService'
 import useAuth from '../../hooks/useAuth'
 import { auth } from '../../firebase/firebaseConfig'
 import { signOut } from 'firebase/auth'
-import logo from '../../assets/saylani-logo.svg'
+import BrandLogo from '../Brand/BrandLogo'
 
 export default function Navbar(){
   const nav = useNavigate()
@@ -25,35 +25,38 @@ export default function Navbar(){
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top-custom shadow-sm">
+    <nav className="navbar navbar-expand-lg sticky-top-custom shadow-sm">
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
-          <img src={logo} alt="Saylani" className="logo me-2" />
-          <span className="fw-bold" style={{color:'var(--green)'}}>Saylani</span>
+        <Link className="navbar-brand d-flex align-items-center gap-2" to="/">
+          <BrandLogo size={44} />
+          <div>
+            <div className="fw-bold" style={{ color: 'var(--green)' }}>Saylani</div>
+            <div className="small text-muted">Mass IT Hub</div>
+          </div>
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navMenu">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-            <li className="nav-item me-3">
-              <Link to="/dashboard" className="nav-link">Dashboard</Link>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-2">
+            <li className="nav-item">
+              <Link to="/dashboard" className="nav-link d-flex align-items-center gap-2"><FaTachometerAlt /> Dashboard</Link>
             </li>
-            <li className="nav-item me-3">
-              <Link to="/" className="nav-link">Home</Link>
+            <li className="nav-item">
+              <Link to="/" className="nav-link d-flex align-items-center gap-2"><FaHome /> Home</Link>
             </li>
             {user ? (
               <>
-                <li className="nav-item me-3 position-relative">
-                  <Link to="/notifications" className="nav-link position-relative">
+                <li className="nav-item position-relative">
+                  <Link to="/notifications" className="nav-link position-relative d-flex align-items-center gap-2">
                     <FaBell />
                     {unreadCount > 0 && (
                       <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{unreadCount}</span>
                     )}
                   </Link>
                 </li>
-                <li className="nav-item me-3 d-flex align-items-center">
-                  <span className="text-muted small">{profile?.name || user.email}</span>
+                <li className="nav-item d-flex align-items-center px-2">
+                  <span className="text-muted small fw-semibold">{profile?.name || user.email}</span>
                 </li>
                 <li className="nav-item">
                   <button className="btn btn-outline-danger d-flex align-items-center" onClick={doLogout}>
@@ -64,7 +67,7 @@ export default function Navbar(){
             ) : (
               <>
                 <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li>
-                <li className="nav-item"><Link className="btn btn-outline-success ms-3" to="/signup">Sign Up</Link></li>
+                <li className="nav-item"><Link className="btn btn-outline-success" to="/signup">Sign Up</Link></li>
               </>
             )}
           </ul>

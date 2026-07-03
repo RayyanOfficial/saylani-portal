@@ -7,13 +7,15 @@ export default function Layout({children}){
   return (
     <div className="app-shell">
       <Navbar />
-      <div className="container-fluid mt-4">
-        <div className="row">
-          <div className="col-12 col-lg-3 mb-3">
+      <div className="container-fluid py-4">
+        <div className="row g-4 align-items-start">
+          <div className="col-12 col-lg-3">
             <Sidebar />
           </div>
           <div className="col-12 col-lg-9">
-            {children}
+            <div className="page-card p-3 p-md-4">
+              {children}
+            </div>
           </div>
         </div>
       </div>

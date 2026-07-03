@@ -1,24 +1,41 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { FaChartPie, FaBoxOpen, FaExclamationCircle, FaHandsHelping, FaBell, FaShieldAlt } from 'react-icons/fa'
 import useAuth from '../../hooks/useAuth'
+import BrandLogo from '../Brand/BrandLogo'
 
 export default function Sidebar(){
   const { profile } = useAuth()
 
+  const links = [
+    { to: '/dashboard', label: 'Dashboard', icon: <FaChartPie /> },
+    { to: '/lost-found', label: 'Lost & Found', icon: <FaBoxOpen /> },
+    { to: '/complaints', label: 'Complaints', icon: <FaExclamationCircle /> },
+    { to: '/volunteer', label: 'Volunteers', icon: <FaHandsHelping /> },
+    { to: '/notifications', label: 'Notifications', icon: <FaBell /> }
+  ]
+
   return (
-    <div className="bg-white p-3 card-custom sidebar glass">
-      <div className="mb-4 text-center border-bottom pb-3">
-        <div className="text-uppercase small text-muted mb-1">Saylani Hub</div>
-        <div className="fw-bold">Campus Portal</div>
+    <div className="card-custom sidebar glass p-3 p-lg-3">
+      <div className="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom">
+        <BrandLogo size={38} />
+        <div>
+          <div className="fw-bold">Campus Portal</div>
+          <div className="small text-muted">Service hub</div>
+        </div>
       </div>
-      <nav className="nav flex-column">
-        <NavLink to="/dashboard" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Dashboard</NavLink>
-        <NavLink to="/lost-found" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Lost & Found</NavLink>
-        <NavLink to="/complaints" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Complaints</NavLink>
-        <NavLink to="/volunteer" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Volunteers</NavLink>
-        <NavLink to="/notifications" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Notifications</NavLink>
+      <nav className="nav flex-column gap-1">
+        {links.map(link => (
+          <NavLink key={link.to} to={link.to} className={({isActive})=>"nav-link px-3 py-2 d-flex align-items-center gap-2 "+(isActive? 'active':'')}>
+            {link.icon}
+            <span>{link.label}</span>
+          </NavLink>
+        ))}
         {profile?.role === 'admin' && (
-          <NavLink to="/admin" className={({isActive})=>"nav-link px-3 py-2 rounded-12 mb-1 "+(isActive? 'active':'')}>Admin Panel</NavLink>
+          <NavLink to="/admin" className={({isActive})=>"nav-link px-3 py-2 d-flex align-items-center gap-2 "+(isActive? 'active':'')}>
+            <FaShieldAlt />
+            <span>Admin Panel</span>
+          </NavLink>
         )}
       </nav>
     </div>

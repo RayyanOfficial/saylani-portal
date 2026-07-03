@@ -114,25 +114,26 @@ export default function LostFoundPage(){
       <div className="row gy-4">
         <div className="col-12 col-xl-4">
           <div className="card card-custom p-4 rounded-16">
-            <h5 className="mb-3">Report Lost / Found</h5>
+            <h5 className="mb-1 fw-bold">Report Lost / Found</h5>
+            <p className="text-muted small mb-3">Submit a detailed report so the item can be found or returned faster.</p>
             <form onSubmit={submit}>
               <div className="mb-3">
-                <label className="form-label">Title</label>
+                <label className="form-label fw-semibold">Title</label>
                 <input className="form-control" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} placeholder="Item title" required />
               </div>
               <div className="mb-3">
-                <label className="form-label">Description</label>
+                <label className="form-label fw-semibold">Description</label>
                 <textarea className="form-control" rows={4} value={form.description} onChange={e=>setForm({...form,description:e.target.value})} placeholder="Describe the item" required />
               </div>
               <div className="row g-3 mb-3">
                 <div className="col-6">
-                  <label className="form-label">Type</label>
+                  <label className="form-label fw-semibold">Type</label>
                   <select className="form-select" value={form.type} onChange={e=>setForm({...form,type:e.target.value})}>
                     {typeOptions.map(type => <option key={type} value={type}>{type}</option>)}
                   </select>
                 </div>
                 <div className="col-6">
-                  <label className="form-label">Image</label>
+                  <label className="form-label fw-semibold">Image</label>
                   <input type="file" className="form-control" accept="image/*" onChange={e=>handleFileChange('imageFile', e.target.files[0]||null)} />
                 </div>
               </div>
@@ -145,7 +146,7 @@ export default function LostFoundPage(){
           <div className="card card-custom p-4 rounded-16 mb-4">
             <div className="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center justify-content-between">
               <div>
-                <h5 className="mb-1">Lost & Found Catalog</h5>
+                <h5 className="mb-1 fw-bold">Lost & Found Catalog</h5>
                 <p className="text-muted small mb-0">Search, filter, and manage recent records in real time.</p>
               </div>
               <div className="d-flex flex-wrap gap-2 w-100 w-md-auto">

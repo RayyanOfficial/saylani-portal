@@ -3,8 +3,8 @@ import StatusBadge from '../StatusBadge/StatusBadge'
 
 export default function SimpleTable({columns,rows,actions}){
   return (
-    <div className="table-responsive card card-custom p-3">
-      <table className="table table-hover align-middle">
+    <div className="table-responsive card card-custom p-3 rounded-16">
+      <table className="table table-hover align-middle mb-0">
         <thead>
           <tr>
             {columns.map(c=><th key={c.key}>{c.label}</th>)}
