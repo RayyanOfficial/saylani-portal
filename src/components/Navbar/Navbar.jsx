@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { FaBell, FaSignOutAlt, FaHome, FaTachometerAlt } from 'react-icons/fa'
+import { FaBell, FaSignOutAlt, FaHome, FaTachometerAlt, FaUserCircle } from 'react-icons/fa'
 import { listenAllNotifications } from '../../services/notificationsService'
 import useAuth from '../../hooks/useAuth'
 import { auth } from '../../firebase/firebaseConfig'
@@ -56,7 +56,10 @@ export default function Navbar(){
                   </Link>
                 </li>
                 <li className="nav-item d-flex align-items-center px-2">
-                  <span className="text-muted small fw-semibold">{profile?.name || user.email}</span>
+                  <Link to="/profile" className="d-flex align-items-center gap-2 text-muted small fw-semibold">
+                    <FaUserCircle />
+                    <span>{profile?.name || user.email}</span>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   <button className="btn btn-outline-danger d-flex align-items-center" onClick={doLogout}>

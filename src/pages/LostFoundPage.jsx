@@ -28,7 +28,7 @@ export default function LostFoundPage(){
 
   const filteredItems = useMemo(() => {
     const term = search.trim().toLowerCase()
-    return items.filter(item => {
+    return (items || []).filter(item => {
       if(typeFilter !== 'All' && item.type !== typeFilter) return false
       if(statusFilter !== 'All' && item.status !== statusFilter) return false
       if(term && !(item.title?.toLowerCase().includes(term) || item.description?.toLowerCase().includes(term))) return false

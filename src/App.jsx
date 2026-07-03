@@ -11,6 +11,7 @@ import LostFoundPage from './pages/LostFoundPage'
 import ComplaintsPage from './pages/ComplaintsPage'
 import VolunteerPage from './pages/VolunteerPage'
 import AdminPage from './pages/AdminPage'
+import ProfilePage from './pages/ProfilePage'
 import NotificationList from './components/Notification/NotificationList'
 import Toasts from './components/Notification/Toasts'
 
@@ -27,6 +28,7 @@ export default function App(){
         <Route path="/complaints" element={<ProtectedRoute><Layout><ComplaintsPage/></Layout></ProtectedRoute>} />
         <Route path="/volunteer" element={<ProtectedRoute><Layout><VolunteerPage/></Layout></ProtectedRoute>} />
         <Route path="/admin" element={<ProtectedRoute requiredRole={'admin'}><Layout><AdminPage/></Layout></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Layout><ProfilePage/></Layout></ProtectedRoute>} />
         <Route path="/notifications" element={<ProtectedRoute><Layout><NotificationList/></Layout></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" replace/>} />
       </Routes>

@@ -28,7 +28,7 @@ export default function ComplaintsPage(){
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase()
-    return complaints.filter(c => {
+    return (complaints || []).filter(c => {
       if(catFilter !== 'All' && c.category !== catFilter) return false
       if(statusFilter !== 'All' && c.status !== statusFilter) return false
       if(term && !(c.description?.toLowerCase().includes(term) || c.category?.toLowerCase().includes(term))) return false

@@ -27,22 +27,22 @@ export default function AdminPage(){
 
   const filteredUsers = useMemo(() => {
     const term = searchUsers.trim().toLowerCase()
-    return users.filter(u => !term || u.name?.toLowerCase().includes(term) || u.email?.toLowerCase().includes(term) || u.role?.toLowerCase().includes(term))
+    return (users || []).filter(u => !term || u.name?.toLowerCase().includes(term) || u.email?.toLowerCase().includes(term) || u.role?.toLowerCase().includes(term))
   }, [users, searchUsers])
 
   const filteredLost = useMemo(() => {
     const term = searchLost.trim().toLowerCase()
-    return lost.filter(item => !term || item.title?.toLowerCase().includes(term) || item.type?.toLowerCase().includes(term) || item.status?.toLowerCase().includes(term))
+    return (lost || []).filter(item => !term || item.title?.toLowerCase().includes(term) || item.type?.toLowerCase().includes(term) || item.status?.toLowerCase().includes(term))
   }, [lost, searchLost])
 
   const filteredComplaints = useMemo(() => {
     const term = searchComplaints.trim().toLowerCase()
-    return complaints.filter(item => !term || item.category?.toLowerCase().includes(term) || item.status?.toLowerCase().includes(term) || item.description?.toLowerCase().includes(term))
+    return (complaints || []).filter(item => !term || item.category?.toLowerCase().includes(term) || item.status?.toLowerCase().includes(term) || item.description?.toLowerCase().includes(term))
   }, [complaints, searchComplaints])
 
   const filteredVols = useMemo(() => {
     const term = searchVols.trim().toLowerCase()
-    return vols.filter(item => !term || item.name?.toLowerCase().includes(term) || item.event?.toLowerCase().includes(term) || item.email?.toLowerCase().includes(term))
+    return (vols || []).filter(item => !term || item.name?.toLowerCase().includes(term) || item.event?.toLowerCase().includes(term) || item.email?.toLowerCase().includes(term))
   }, [vols, searchVols])
 
   const performDelete = async () => {

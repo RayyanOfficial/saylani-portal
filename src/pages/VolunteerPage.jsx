@@ -21,7 +21,7 @@ export default function VolunteerPage(){
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase()
-    return list.filter(item => {
+    return (list || []).filter(item => {
       if(!term) return true
       return item.name?.toLowerCase().includes(term)
         || item.event?.toLowerCase().includes(term)

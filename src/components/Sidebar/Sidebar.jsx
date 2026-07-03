@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { FaChartPie, FaBoxOpen, FaExclamationCircle, FaHandsHelping, FaBell, FaShieldAlt } from 'react-icons/fa'
+import { FaChartPie, FaBoxOpen, FaExclamationCircle, FaHandsHelping, FaBell, FaShieldAlt, FaUserCircle } from 'react-icons/fa'
 import useAuth from '../../hooks/useAuth'
 import BrandLogo from '../Brand/BrandLogo'
 
@@ -31,6 +31,10 @@ export default function Sidebar(){
             <span>{link.label}</span>
           </NavLink>
         ))}
+        <NavLink to="/profile" className={({isActive})=>"nav-link px-3 py-2 d-flex align-items-center gap-2 "+(isActive? 'active':'')}>
+          <FaUserCircle />
+          <span>Profile</span>
+        </NavLink>
         {profile?.role === 'admin' && (
           <NavLink to="/admin" className={({isActive})=>"nav-link px-3 py-2 d-flex align-items-center gap-2 "+(isActive? 'active':'')}>
             <FaShieldAlt />
